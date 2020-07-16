@@ -1,64 +1,64 @@
 <?php 
-$users_controller = new UsersController();
+$ms_controller = new MovieSeriesController();
 
-if( $_POST['r'] == 'user-delete' && $_SESSION['role'] == 'Admin' && !isset($_POST['crud']) ) {
+if( $_POST['r'] == 'movieserie-delete' && $_SESSION['role'] == 'Admin' && !isset($_POST['crud']) ) {
 
-	$user = $users_controller->get($_POST['user']);
+	$ms = $ms_controller->get($_POST['imdb_id']);
 
-	if( empty($user) ) {
+	if( empty($ms) ) {
 		$template = '
 			<div class="container">
-				<p class="item  error">No existe el usuario <b>%s</b></p>
+				<p class="item  error">No existe La película <b>%s</b></p>
 			</div>
 			<script>
 				window.onload = function (){
-					reloadPage("usuarios")
+					reloadPage("movieseries")
 				}
 			</script>
 		';
 
-		printf($template, $_POST['user']);
+		printf($template, $_POST['imdb_id']);
 	} else {
-		$template_status = '
-			<h2 class="p1">Eliminar usuario</h2>
+		$template_ms = '
+			<h2 class="p1">Eliminar Película</h2>
 			<form method="POST" class="item">
 				<div class="1  f2">
-                    ¿Estas seguro de eliminar el Usuario: 
+                    ¿Estas seguro de eliminar la película: 
                     <mark class="p1">%s</mark>
 				</div>
 				<div class="p_25">
                     <input class="button  delete" type="submit" value="SI">
                     <input class="button  add" type="button" value="NO" onclick="history.back()">
-                    <input type="hidden" name="user" value="%s">
-                    <input type="hidden" name="r" value="user-delete">
+                    <input type="hidden" name="imdb_id" value="%s">
+                    <input type="hidden" name="r" value="movieserie-delete">
                     <input type="hidden" name="crud" value="del">
 				</div>
 			</form>
 		';
 
 		printf(
-			$template_status,
-			$user[0]['user'],
-			$user[0]['user']
+			$template_ms,
+			$ms[0]['imdb_id'],
+			$ms[0]['imdb_id']
 		);	
 	}
 
-} else if( $_POST['r'] == 'user-delete' && $_SESSION['role'] == 'Admin' && $_POST['crud'] == 'del' ) {	
+} else if( $_POST['r'] == 'movieserie-delete' && $_SESSION['role'] == 'Admin' && $_POST['crud'] == 'del' ) {	
 
-	$user = $users_controller->del($_POST['user']);
+	$ms = $ms_controller->del($_POST['imdb_id']);
 
 	$template = '
 		<div class="container">
-			<p class="item  delete">Usuario <b>%s</b> eliminado</p>
+			<p class="item  delete">Película <b>%s</b> eliminado</p>
 		</div>
 		<script>
 			window.onload = function () {
-				reloadPage("usuarios")
+				reloadPage("movieseries")
 			}
 		</script>
 	';
 
-	printf($template, $_POST['user']);
+	printf($template, $_POST['imdb_id']);
 } else {
 	$controller = new ViewControllers();
 	$controller->load_view('error401');

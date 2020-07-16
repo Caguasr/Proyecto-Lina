@@ -36,7 +36,7 @@ class Router {
 					else if( $_POST['r'] == 'movieserie-show' )  $controller->load_view('movieserie-show');
 					break;
 
-				case 'usuarios':
+				case 'users':
 					if( !isset( $_POST['r'] ) )  $controller->load_view('users');
 					else if( $_POST['r'] == 'user-add' )  $controller->load_view('user-add');
 					else if( $_POST['r'] == 'user-edit' )  $controller->load_view('user-edit');

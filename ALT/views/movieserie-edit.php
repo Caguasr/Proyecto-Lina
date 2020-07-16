@@ -19,7 +19,7 @@ if( $_POST['r'] == 'movieserie-edit' && $_SESSION['role'] == 'Admin' && !isset($
 
 		printf($template, $_POST['imdb_id']);
 	} else {
-		$category_movie = ($ms[0]['category'] == 'Movie') ? 'checked' : '';
+		$category_movie = ($ms[0]['category'] == 'MOVIE') ? 'checked' : '';
 		$category_serie = ($ms[0]['category'] == 'Serie') ? 'checked' : '';
 
 		$status_controller = new StatusController();
