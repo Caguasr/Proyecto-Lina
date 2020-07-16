@@ -7,6 +7,6 @@
        
     </head>
     <body>
-    
+    <h1>Aqui va la pantalla principal amigo Carlos</h1>
     </body>
 </html>

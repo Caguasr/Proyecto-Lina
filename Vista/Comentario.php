@@ -8,7 +8,7 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title></title>
-        <link href="./css/comentario.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="../css/comentario.css" />
 
     </head>
     <body>

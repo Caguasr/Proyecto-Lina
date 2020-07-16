@@ -8,10 +8,10 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title></title>
-        <link href="css/registro.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/registro.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <form action="Controlador/Ingreso_cliente.php" method="Post">
+        <form action="../Controlador/Ingreso_cliente.php" method="Post">
             <div class="contenedor">
                 
             
