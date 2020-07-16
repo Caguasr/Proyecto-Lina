@@ -1,14 +1,12 @@
-<?php
-require_once('./controllers/Autoload.php');
-$autoload = new Autoload();
-//pasa el parametro a router
-$route = (isset($_GET['r'])) ? $_GET['r'] : 'home' ;
-$alt = new Router($route);
-
-
-
-
-
-
-
-echo 'perr'; 
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       
+    </head>
+    <body>
+    
+    </body>
+</html>
