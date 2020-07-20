@@ -81,12 +81,12 @@ class Router {
 					$_SESSION['ok'] = true;
 
 					foreach ($session as $row) {
-						$_SESSION['user'] = $row['user'];
+						$_SESSION['id_usuario'] = $row['id_usuario'];
+						$_SESSION['nombre_usuario'] = $row['nombre_usuario'];
+						$_SESSION['usuario'] = $row['usuario'];
+						$_SESSION['password'] = $row['password'];
 						$_SESSION['email'] = $row['email'];
-						$_SESSION['name'] = $row['name'];
-						$_SESSION['birthday'] = $row['birthday'];
-						$_SESSION['pass'] = $row['pass'];
-						$_SESSION['role'] = $row['role'];
+						$_SESSION['rol'] = $row['rol'];
 					}
 
 					header('Location: ./');

@@ -5,7 +5,7 @@ abstract class Model {
     private static $db_host = 'localhost';
     private static $db_user = 'root';
     private static $db_pass = '';
-    private static $db_name = 'atl';
+    private static $db_name = 'l_pelis';
     private static $db_charset = 'utf8';
     // variable para la conexion
     private $conn;

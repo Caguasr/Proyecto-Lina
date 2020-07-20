@@ -15,11 +15,10 @@ if( empty($users) ) {
 	<div class="item">
 		<table>
 			<tr>
-				<th>Usuario</th>
-				<th>Correo</th>
 				<th>Nombre</th>
-				<th>Cumpleaños</th>
+				<th>Usuario</th>
 				<th>Contraseña</th>
+				<th>Email</th>
 				<th>Rol</th>
 				<th colspan="2">
 					<form method="POST">
@@ -32,23 +31,22 @@ if( empty($users) ) {
 	for ($n=0; $n < count($users); $n++) { 
 		$template_users .= '
 			<tr>
-				<td>' . $users[$n]['user'] . '</td>
+				<td>' . $users[$n]['nombre_usuario'] . '</td>
+				<td>' . $users[$n]['usuario'] . '</td>
+				<td>' . $users[$n]['password'] . '</td>
 				<td>' . $users[$n]['email'] . '</td>
-				<td>' . $users[$n]['name'] . '</td>
-				<td>' . $users[$n]['birthday'] . '</td>
-				<td>' . $users[$n]['pass'] . '</td>
-				<td>' . $users[$n]['role'] . '</td>
+				<td>' . $users[$n]['rol'] . '</td>
 				<td>
 					<form method="POST">
 						<input type="hidden" name="r" value="user-edit">
-						<input type="hidden" name="user" value="' . $users[$n]['user'] . '">
+						<input type="hidden" name="user" value="' . $users[$n]['nombre_usuario'] . '">
 						<input class="button  edit" type="submit" value="Editar">
 					</form>
 				</td>
 				<td>
 					<form method="POST">
 						<input type="hidden" name="r" value="user-delete">
-						<input type="hidden" name="user" value="' . $users[$n]['user'] . '">
+						<input type="hidden" name="user" value="' . $users[$n]['nombre_usuario'] . '">
 						<input class="button  delete" type="submit" value="Eliminar">
 					</form>
 				</td>

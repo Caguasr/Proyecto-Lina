@@ -12,8 +12,8 @@ class UsersController{
 
     }
 
-    public function get( $user_id = ''){
-        return $this->model->get($user_id);
+    public function get( $usuario = ''){
+        return $this->model->get($usuario);
         
     }
 
