@@ -16,7 +16,6 @@ if(empty($ms)){
                 <th>IMDB Id</th>
                 <th>Título</th>
                 <th>Estreno</th>
-                <th>Género</th>
                 <th>Status</th>
                 <th>Categoría</th>
                 <th colspan="3">
@@ -30,11 +29,10 @@ if(empty($ms)){
         $template_ms .= '
             <tr>
                 <td>' . $ms[$n]['imdb_id'] . '</td>
-                <td>' . $ms[$n]['title'] . '</td>
-                <td>' . $ms[$n]['premiere'] . '</td>
-                <td>' . $ms[$n]['genres'] . '</td>
+                <td>' . $ms[$n]['titulo'] . '</td>
+                <td>' . $ms[$n]['año'] . '</td>
                 <td>' . $ms[$n]['status'] . '</td>
-                <td>' . $ms[$n]['category'] . '</td>
+                <td>' . $ms[$n]['categoria'] . '</td>
                 <td>
                 <form method="POST">
                     <input type="hidden" name="r" value="movieserie-show">

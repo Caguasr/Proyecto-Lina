@@ -10,11 +10,11 @@ class MovieSeriesModel extends Model
             $$key = $value;
         }
 
-        $plot = str_replace("'", "\'", $plot);
+        $sinopsis = str_replace("'", "\'", $sinopsis);
 
-
+        
         //el query viene desde Model
-        $this->query = "REPLACE INTO movieseries SET imdb_id = '$imdb_id', title='$title', plot = '$plot', author = '$author', actors = '$actors', country = '$country', premiere='$premiere', trailer = '$trailer', poster='$poster', rating = $rating, genres = '$genres', status = $status, category = '$category'";
+        $this->query = "REPLACE INTO peliculas SET imdb_id = '$imdb_id', titulo='$titulo', sinopsis = '$sinopsis', `año`='$año', imagen='$imagen', trailer = '$trailer', actores = '$actores', autor = '$autor', rating = $rating, categoria = '$categoria', statusstatus_id = $statusstatus_id";
 
         $this->set_query();
     }
@@ -22,8 +22,8 @@ class MovieSeriesModel extends Model
     public function get($ms = '')
     {
         $this->query = ($ms != '')
-            ? "SELECT ms.imdb_id, ms.title, ms.plot, ms.author, ms.actors, ms.country, ms.premiere, ms.poster, ms.trailer, ms.rating, ms.genres, ms.category, s.status FROM movieseries AS ms INNER JOIN status AS s ON ms.status = s.status_id WHERE ms.imdb_id = '$ms'"
-            : "SELECT ms.imdb_id, ms.title, ms.plot, ms.author, ms.actors, ms.country, ms.premiere, ms.poster, ms.trailer, ms.rating, ms.genres, ms.category, s.status FROM movieseries AS ms INNER JOIN status AS s ON ms.status = s.status_id";
+            ? "SELECT ms.imdb_id, ms.titulo, ms.sinopsis, ms.año, ms.imagen, ms.trailer, ms.actores, ms.autor, ms.rating, ms.categoria, s.status FROM peliculas AS ms INNER JOIN status AS s ON ms.statusstatus_id = s.status_id WHERE ms.imdb_id = '$ms'"
+            : "SELECT ms.imdb_id, ms.titulo, ms.sinopsis, ms.año, ms.imagen, ms.trailer, ms.actores, ms.autor, ms.rating, ms.categoria, s.status FROM peliculas AS ms INNER JOIN status AS s ON ms.statusstatus_id = s.status_id";
         $this->get_query();
 
         //contar cuantos datos existe
@@ -38,7 +38,7 @@ class MovieSeriesModel extends Model
 
     public function del($ms = '')
     {
-        $this->query = "DELETE FROM movieseries WHERE imdb_id= '$ms'";
+        $this->query = "DELETE FROM peliculas WHERE imdb_id= '$ms'";
 
         $this->set_query();
     }

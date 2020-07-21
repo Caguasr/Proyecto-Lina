@@ -1,7 +1,7 @@
 <?php 
 $users_controller = new UsersController();
 
-if( $_POST['r'] == 'user-delete' && $_SESSION['role'] == 'Admin' && !isset($_POST['crud']) ) {
+if( $_POST['r'] == 'user-delete' && $_SESSION['rol'] == 'Admin' && !isset($_POST['crud']) ) {
 
 	$user = $users_controller->get($_POST['user']);
 
@@ -38,12 +38,12 @@ if( $_POST['r'] == 'user-delete' && $_SESSION['role'] == 'Admin' && !isset($_POS
 
 		printf(
 			$template_status,
-			$user[0]['user'],
-			$user[0]['user']
+			$user[0]['usuario'],
+			$user[0]['usuario']
 		);	
 	}
 
-} else if( $_POST['r'] == 'user-delete' && $_SESSION['role'] == 'Admin' && $_POST['crud'] == 'del' ) {	
+} else if( $_POST['r'] == 'user-delete' && $_SESSION['rol'] == 'Admin' && $_POST['crud'] == 'del' ) {	
 
 	$user = $users_controller->del($_POST['user']);
 

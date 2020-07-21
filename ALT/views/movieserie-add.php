@@ -1,5 +1,5 @@
 <?php
-if ($_POST['r'] == 'movieserie-add' && $_SESSION['role'] == 'Admin' && !isset($_POST['crud'])) {
+if ($_POST['r'] == 'movieserie-add' && $_SESSION['rol'] == 'Admin' && !isset($_POST['crud'])) {
     
     $status_controller = new StatusController();
     $status = $status_controller->get();
@@ -29,13 +29,10 @@ if ($_POST['r'] == 'movieserie-add' && $_SESSION['role'] == 'Admin' && !isset($_
                 <input type="text" name="actors" placeholder="Actores">
             </div>
             <div class="p_25">
-                <input type="text" name="country" placeholder="País">
+                <input type="text" name="premiere" placeholder="Año de estreno" required>
             </div>
             <div class="p_25">
-                <input type="text" name="premiere" placeholder="Estreno" required>
-            </div>
-            <div class="p_25">
-                <input type="url" name="poster" placeholder="Poster">
+                <input type="url" name="poster" placeholder="Imagen">
             </div>
             <div class="p_25">
                 <input type="url" name="trailer" placeholder="trailer">
@@ -44,16 +41,13 @@ if ($_POST['r'] == 'movieserie-add' && $_SESSION['role'] == 'Admin' && !isset($_
                 <input type="number" name="rating" placeholder="rating" required>
             </div>
             <div class="p_25">
-                <input type="text" name="genres" placeholder="géneros" required>
-            </div>
-            <div class="p_25">
                 <select name="status" placeholder="status" required>
                 <option value="">status</option>
                 %s
                 </select>
             </div>
             <div class="p_25">
-                <input type="radio"  name="category" id="movie" value="Movie" required><label for="movie">Película</label>
+                <input type="radio"  name="category" id="movie" value="Película" required><label for="movie">Película</label>
                 <input type="radio"  name="category" id="serie" value="Serie" required><label for="serie">Serie</label>
             </div>
             <div class="p_25">
@@ -63,23 +57,21 @@ if ($_POST['r'] == 'movieserie-add' && $_SESSION['role'] == 'Admin' && !isset($_
         </div>
         </form>
     ', $status_select );
-} else if ($_POST['r'] == 'movieserie-add' && $_SESSION['role'] == 'Admin' && $_POST['crud'] == 'set') {
+} else if ($_POST['r'] == 'movieserie-add' && $_SESSION['rol'] == 'Admin' && $_POST['crud'] == 'set') {
     $ms_controller = new MovieSeriesModel();
 
     $new_ms = array(
         'imdb_id' =>  $_POST['imdb_id'],
-        'title' =>  $_POST['title'],
-        'plot' =>  $_POST['plot'],
-        'author' =>  $_POST['author'],
-        'actors' =>  $_POST['actors'],
-        'country' =>  $_POST['country'],
-        'premiere' =>  $_POST['premiere'],
-        'poster' =>  $_POST['poster'],
+        'titulo' =>  $_POST['title'],
+        'sinopsis' =>  $_POST['plot'],
+        'autor' =>  $_POST['author'],
+        'actores' =>  $_POST['actors'],
+        'año' =>  $_POST['premiere'],
+        'imagen' =>  $_POST['poster'],
         'trailer' =>  $_POST['trailer'],
         'rating' =>  $_POST['rating'],
-        'genres' =>  $_POST['genres'],
-        'status' =>  $_POST['status'],
-        'category' =>  $_POST['category']
+        'statusstatus_id' =>  $_POST['status'],
+        'categoria' =>  $_POST['category']
     );
 
     $ms = $ms_controller->set($new_ms);
@@ -90,7 +82,7 @@ if ($_POST['r'] == 'movieserie-add' && $_SESSION['role'] == 'Admin' && !isset($_
         </div>
         <script>
             window.onload = function (){
-                reloadPage("usuarios")
+                //reloadPage("movieseries")
             }
         </script>
     ';

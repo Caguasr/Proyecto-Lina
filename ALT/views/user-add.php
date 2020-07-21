@@ -1,5 +1,5 @@
 <?php
-if ($_POST['r'] == 'user-add' && $_SESSION['role'] == 'Admin' && !isset($_POST['crud'])) {
+if ($_POST['r'] == 'user-add' && $_SESSION['rol'] == 'Admin' && !isset($_POST['crud'])) {
     print('
         <h2 class="p1">Agregar Usuario</h2>
         <form method="POST" class="item">
@@ -11,9 +11,6 @@ if ($_POST['r'] == 'user-add' && $_SESSION['role'] == 'Admin' && !isset($_POST['
             </div>
             <div class="p_25">
             <input type="text" name="name" placeholder="nombre" required>
-            </div>
-            <div class="p_25">
-            <input type="text" name="birthday" placeholder="cumpleaños" required>
             </div>
             <div class="p_25">
             <input type="password" name="pass" placeholder="password" required>
@@ -29,16 +26,15 @@ if ($_POST['r'] == 'user-add' && $_SESSION['role'] == 'Admin' && !isset($_POST['
         </div>
         </form>
     ');
-} else if ($_POST['r'] == 'user-add' && $_SESSION['role'] == 'Admin' && $_POST['crud'] == 'set') {
+} else if ($_POST['r'] == 'user-add' && $_SESSION['rol'] == 'Admin' && $_POST['crud'] == 'set') {
     $users_controller = new UsersController();
 
     $new_user = array(
-        'user' =>  $_POST['user'],
-        'email' =>  $_POST['email'],
-        'name' =>  $_POST['name'],
-        'birthday' =>  $_POST['birthday'],
-        'pass' =>  $_POST['pass'],
-        'role' =>  $_POST['role']
+        'nombre_usuario' =>  $_POST['name'], 
+		'usuario' =>  $_POST['user'], 
+		'email' =>  $_POST['email'],
+		'password' =>  $_POST['pass'], 
+		'rol' =>  $_POST['role']
     );
 
     $user = $users_controller->set($new_user);

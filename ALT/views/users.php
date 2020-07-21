@@ -39,14 +39,14 @@ if( empty($users) ) {
 				<td>
 					<form method="POST">
 						<input type="hidden" name="r" value="user-edit">
-						<input type="hidden" name="user" value="' . $users[$n]['nombre_usuario'] . '">
+						<input type="hidden" name="user" value="' . $users[$n]['usuario'] . '">
 						<input class="button  edit" type="submit" value="Editar">
 					</form>
 				</td>
 				<td>
 					<form method="POST">
 						<input type="hidden" name="r" value="user-delete">
-						<input type="hidden" name="user" value="' . $users[$n]['nombre_usuario'] . '">
+						<input type="hidden" name="user" value="' . $users[$n]['usuario'] . '">
 						<input class="button  delete" type="submit" value="Eliminar">
 					</form>
 				</td>

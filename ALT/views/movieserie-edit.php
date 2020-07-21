@@ -1,14 +1,14 @@
 <?php 
 $ms_controller = new MovieSeriesController();
 
-if( $_POST['r'] == 'movieserie-edit' && $_SESSION['role'] == 'Admin' && !isset($_POST['crud']) ) {
+if( $_POST['r'] == 'movieserie-edit' && $_SESSION['rol'] == 'Admin' && !isset($_POST['crud']) ) {
 
 	$ms = $ms_controller->get($_POST['imdb_id']);
 
 	if( empty($ms) ) {
 		$template = '
 			<div class="container">
-				<p class="item  error">No existe la MovieSerie <b>%s</b></p>
+				<p class="item  error">No existe la Película <b>%s</b></p>
 			</div>
 			<script>
 				window.onload = function (){
@@ -19,8 +19,8 @@ if( $_POST['r'] == 'movieserie-edit' && $_SESSION['role'] == 'Admin' && !isset($
 
 		printf($template, $_POST['imdb_id']);
 	} else {
-		$category_movie = ($ms[0]['category'] == 'MOVIE') ? 'checked' : '';
-		$category_serie = ($ms[0]['category'] == 'Serie') ? 'checked' : '';
+		$category_movie = ($ms[0]['categoria'] == 'MOVIE') ? 'checked' : '';
+		$category_serie = ($ms[0]['categoria'] == 'Serie') ? 'checked' : '';
 
 		$status_controller = new StatusController();
 		$status = $status_controller->get();
@@ -51,22 +51,16 @@ if( $_POST['r'] == 'movieserie-edit' && $_SESSION['role'] == 'Admin' && !isset($
 					<input type="text" name="actors" placeholder="actores" value="%s">
 				</div>
 				<div class="p_25">
-					<input type="text" name="country" placeholder="país" value="%s">
+					<input type="text" name="premiere" placeholder="Año de estreno" value="%s" required>
 				</div>
 				<div class="p_25">
-					<input type="text" name="premiere" placeholder="estreno" value="%s" required>
-				</div>
-				<div class="p_25">
-					<input type="url" name="poster" placeholder="poster" value="%s">
+					<input type="url" name="poster" placeholder="Imagen" value="%s">
 				</div>
 				<div class="p_25">
 					<input type="url" name="trailer" placeholder="trailer" value="%s">
 				</div>
 				<div class="p_25">
 					<input type="number" name="rating" placeholder="rating" value="%s" required>
-				</div>
-				<div class="p_25">
-					<input type="text" name="genres" placeholder="géneros" value="%s" required>
 				</div>
 				<div class="p_25">
 					<select name="status" placeholder="status" required>
@@ -90,45 +84,41 @@ if( $_POST['r'] == 'movieserie-edit' && $_SESSION['role'] == 'Admin' && !isset($
 			$template_ms,
 			$ms[0]['imdb_id'],
 			$ms[0]['imdb_id'],
-			$ms[0]['title'],
-			$ms[0]['plot'],
-			$ms[0]['author'],
-			$ms[0]['actors'],
-			$ms[0]['country'],
-			$ms[0]['premiere'],
-			$ms[0]['poster'],
+			$ms[0]['titulo'],
+			$ms[0]['sinopsis'],
+			$ms[0]['autor'],
+			$ms[0]['actores'],
+			$ms[0]['año'],
+			$ms[0]['imagen'],
 			$ms[0]['trailer'],
 			$ms[0]['rating'],
-			$ms[0]['genres'],
 			$status_select,
 			$category_movie,
 			$category_serie
 		);	
 	}
 
-} else if( $_POST['r'] == 'movieserie-edit' && $_SESSION['role'] == 'Admin' && $_POST['crud'] == 'set' ) {	
+} else if( $_POST['r'] == 'movieserie-edit' && $_SESSION['rol'] == 'Admin' && $_POST['crud'] == 'set' ) {	
 
 	$save_ms = array(
 		'imdb_id' =>  $_POST['imdb_id'],
-		'title' =>  $_POST['title'], 
-		'plot' =>  $_POST['plot'], 
-		'author' =>  $_POST['author'],
-		'actors' =>  $_POST['actors'],
-		'country' =>  $_POST['country'],
-		'premiere' =>  $_POST['premiere'],
-		'poster' =>  $_POST['poster'],
+		'titulo' =>  $_POST['title'], 
+		'sinopsis' =>  $_POST['plot'], 
+		'autor' =>  $_POST['author'],
+		'actores' =>  $_POST['actors'],
+		'año' =>  $_POST['premiere'],
+		'imagen' =>  $_POST['poster'],
 		'trailer' =>  $_POST['trailer'],
 		'rating' =>  $_POST['rating'],
-		'genres' =>  $_POST['genres'],
-		'status' =>  $_POST['status'],
-		'category' =>  $_POST['category']
+		'statusstatus_id' =>  $_POST['status'],
+		'categoria' =>  $_POST['category']
 	);
 
 	$ms = $ms_controller->set($save_ms);
 
 	$template = '
 		<div class="container">
-			<p class="item  edit">MovieSerie <b>%s</b> salvada</p>
+			<p class="item  edit">Película <b>%s</b> salvada</p>
 		</div>
 		<script>
 			window.onload = function () {

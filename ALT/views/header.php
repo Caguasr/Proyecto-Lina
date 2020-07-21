@@ -27,6 +27,8 @@ if ($_SESSION['ok']) {
             <li class="nobullet item inline"><a href="movieseries">Movies</a></li>
             <li class="nobullet item inline"><a href="users">Usuarios</a></li>
             <li class="nobullet item inline"><a href="status">Status</a></li>
+            <li class="nobullet item inline"><a href="Generos">Géneros</a></li>
+            <li class="nobullet item inline"><a href="links">links</a></li>
             <li class="nobullet item inline"><a href="salir">Salir</a></li>
         </ul>
     </nav>

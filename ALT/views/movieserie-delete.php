@@ -1,7 +1,7 @@
 <?php 
 $ms_controller = new MovieSeriesController();
 
-if( $_POST['r'] == 'movieserie-delete' && $_SESSION['role'] == 'Admin' && !isset($_POST['crud']) ) {
+if( $_POST['r'] == 'movieserie-delete' && $_SESSION['rol'] == 'Admin' && !isset($_POST['crud']) ) {
 
 	$ms = $ms_controller->get($_POST['imdb_id']);
 
@@ -43,7 +43,7 @@ if( $_POST['r'] == 'movieserie-delete' && $_SESSION['role'] == 'Admin' && !isset
 		);	
 	}
 
-} else if( $_POST['r'] == 'movieserie-delete' && $_SESSION['role'] == 'Admin' && $_POST['crud'] == 'del' ) {	
+} else if( $_POST['r'] == 'movieserie-delete' && $_SESSION['rol'] == 'Admin' && $_POST['crud'] == 'del' ) {	
 
 	$ms = $ms_controller->del($_POST['imdb_id']);
 
