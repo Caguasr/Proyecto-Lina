@@ -8,7 +8,7 @@ class UserModel extends Model{
             $$key = $value;
         }
         //el query viene desde Model
-        $this->query = "REPLACE INTO usuarios (id_usuario, nombre_usuario, `usuario`, password, email, `rol`) VALUES('$id_usuario', '$nombre_usuario', '$usuario', MD5('$password'), , '$email' '$rol')";
+        $this->query = "REPLACE INTO usuarios (id_usuario, nombre_usuario, `usuario`, password, email, `rol`) VALUES(null, '$nombre_usuario', '$usuario', MD5('$password'), , '$email' '$rol')";
         $this->set_query();
     }
 

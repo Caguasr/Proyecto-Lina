@@ -1,7 +1,7 @@
 <?php 
 $users_controller = new UsersController();
 
-if( $_POST['r'] == 'user-edit' && $_SESSION['role'] == 'Admin' && !isset($_POST['crud']) ) {
+if( $_POST['r'] == 'user-edit' && $_SESSION['rol'] == 'Admin' && !isset($_POST['crud']) ) {
 
 	$user = $users_controller->get($_POST['user']);
 
@@ -19,8 +19,8 @@ if( $_POST['r'] == 'user-edit' && $_SESSION['role'] == 'Admin' && !isset($_POST[
 
 		printf($template, $_POST['user']);
 	} else {
-		$role_admin = ($user[0]['role'] == 'Admin') ? 'checked' : '';
-		$role_user = ($user[0]['role'] == 'User') ? 'checked' : '';
+		$role_admin = ($user[0]['rol'] == 'Admin') ? 'checked' : '';
+		$role_user = ($user[0]['rol'] == 'User') ? 'checked' : '';
 
 		$template_user = '
 			<h2 class="p1">Editar Usuario</h2>
@@ -34,9 +34,6 @@ if( $_POST['r'] == 'user-edit' && $_SESSION['role'] == 'Admin' && !isset($_POST[
 				</div>
 				<div class="p_25">
 					<input type="text" name="name" placeholder="nombre" value="%s" required>
-				</div>
-				<div class="p_25">
-					<input type="text" name="birthday" placeholder="cumpleaños" value="%s" required>
 				</div>
 				<div class="p_25">
 					<input type="password" name="pass" placeholder="password" value="" required>
@@ -55,37 +52,36 @@ if( $_POST['r'] == 'user-edit' && $_SESSION['role'] == 'Admin' && !isset($_POST[
 
 		printf(
 			$template_user,
-			$user[0]['user'],
-			$user[0]['user'],
+			$user[0]['usuario'],
+			$user[0]['nombre_usuario'],
 			$user[0]['email'],
-			$user[0]['name'],
-			$user[0]['birthday'],
+			$user[0]['nombre_usuario'],
 			//$user[0]['pass'],
 			$role_admin,
 			$role_user
 		);	
 	}
 
-} else if( $_POST['r'] == 'user-edit' && $_SESSION['role'] == 'Admin' && $_POST['crud'] == 'set' ) {	
+} else if( $_POST['r'] == 'user-edit' && $_SESSION['rol'] == 'Admin' && $_POST['crud'] == 'set' ) {	
 
 	$save_user = array(
-		'user' =>  $_POST['user'], 
-		'email' =>  $_POST['email'], 
-		'name' =>  $_POST['name'], 
-		'birthday' =>  $_POST['birthday'], 
-		'pass' =>  $_POST['pass'], 
-		'role' =>  $_POST['role']
+		'nombre_usuario' =>  $_POST['name'], 
+		'usuario' =>  $_POST['user'], 
+		'email' =>  $_POST['email'],
+		'password' =>  $_POST['pass'], 
+		'rol' =>  $_POST['role']
+
 	);
 
 	$user = $users_controller->set($save_user);
 
 	$template = '
 		<div class="container">
-			<p class="item  edit">Status <b>%s</b> salvado</p>
+			<p class="item  edit">Usuario <b>%s</b> salvado</p>
 		</div>
 		<script>
 			window.onload = function () {
-				reloadPage("usuarios")
+				//reloadPage("usuarios")
 			}
 		</script>
 	';
