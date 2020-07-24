@@ -1,7 +1,7 @@
 <?php 
 $status_controller = new StatusController();
 
-if( $_POST['r'] == 'status-edit' && $_SESSION['role'] == 'Admin' && !isset($_POST['crud']) ) {
+if( $_POST['r'] == 'status-edit' && $_SESSION['rol'] == 'Admin' && !isset($_POST['crud']) ) {
 
 	$status = $status_controller->get($_POST['status_id']);
 

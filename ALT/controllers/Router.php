@@ -50,6 +50,20 @@ class Router {
 					else if( $_POST['r'] == 'status-delete' )  $controller->load_view('status-delete');
 					break;
 
+				case 'generos':
+					if( !isset( $_POST['r'] ) )  $controller->load_view('generos');
+					else if( $_POST['r'] == 'genero-add' )  $controller->load_view('genero-add');
+					else if( $_POST['r'] == 'genero-edit' )  $controller->load_view('genero-edit');
+					else if( $_POST['r'] == 'genero-delete' )  $controller->load_view('genero-delete');
+					break;
+				
+				case 'links':
+					if( !isset( $_POST['r'] ) )  $controller->load_view('links');
+					else if( $_POST['r'] == 'link-add' )  $controller->load_view('link-add');
+					else if( $_POST['r'] == 'link-edit' )  $controller->load_view('link-edit');
+					else if( $_POST['r'] == 'link-delete' )  $controller->load_view('link-delete');
+					break;
+
 				case 'salir':
 					$user_session = new SessionController();
 					$user_session->logout();
