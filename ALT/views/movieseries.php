@@ -31,7 +31,7 @@ if(empty($ms)){
                 <td>' . $ms[$n]['imdb_id'] . '</td>
                 <td>' . $ms[$n]['titulo'] . '</td>
                 <td>' . $ms[$n]['año'] . '</td>
-                <td>' . $ms[$n]['status'] . '</td>
+                <td>' . $ms[$n]['status_desc'] . '</td>
                 <td>' . $ms[$n]['categoria'] . '</td>
                 <td>
                 <form method="POST">

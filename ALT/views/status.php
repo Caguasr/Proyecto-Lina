@@ -26,7 +26,7 @@ if(empty($status)){
         $template_status .= '
             <tr>
                 <td>' . $status[$n]['status_id'] . '</td>
-                <td>' . $status[$n]['status'] . '</td>
+                <td>' . $status[$n]['status_desc'] . '</td>
                 <td>
                     <form method="POST">
                         <input type="hidden" name="r" value="status-edit">

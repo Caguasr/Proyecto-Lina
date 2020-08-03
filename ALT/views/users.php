@@ -32,21 +32,21 @@ if( empty($users) ) {
 		$template_users .= '
 			<tr>
 				<td>' . $users[$n]['nombre_usuario'] . '</td>
-				<td>' . $users[$n]['usuario'] . '</td>
+				<td>' . $users[$n]['name'] . '</td>
 				<td>' . $users[$n]['password'] . '</td>
 				<td>' . $users[$n]['email'] . '</td>
 				<td>' . $users[$n]['rol'] . '</td>
 				<td>
 					<form method="POST">
 						<input type="hidden" name="r" value="user-edit">
-						<input type="hidden" name="user" value="' . $users[$n]['usuario'] . '">
+						<input type="hidden" name="user" value="' . $users[$n]['name'] . '">
 						<input class="button  edit" type="submit" value="Editar">
 					</form>
 				</td>
 				<td>
 					<form method="POST">
 						<input type="hidden" name="r" value="user-delete">
-						<input type="hidden" name="user" value="' . $users[$n]['usuario'] . '">
+						<input type="hidden" name="user" value="' . $users[$n]['name'] . '">
 						<input class="button  delete" type="submit" value="Eliminar">
 					</form>
 				</td>

@@ -27,21 +27,21 @@ if(empty($links)){
         
         $template_links .= '
             <tr>
-                <td>' . $links[$n]['id_link'] . '</td>
+                <td>' . $links[$n]['id'] . '</td>
                 <td>' . $links[$n]['link'] . '</td>
                 <td>' . $links[$n]['titulo'] . '</td>
                 
                 <td>
                     <form method="POST">
                         <input type="hidden" name="r" value="link-edit">
-                        <input type="hidden" name="link_id" value="'. $links[$n]['peliculasimdb_id'] .'">
+                        <input type="hidden" name="link_id" value="'. $links[$n]['movie_id'] .'">
                         <input class="button  edit" type="submit" value="Editar">
                     </form>
                 </td>
                 <td>
                     <form method="POST">
                         <input type="hidden" name="r" value="link-delete">
-                        <input type="hidden" name="link_id" value="'. $links[$n]['peliculasimdb_id'] .'">
+                        <input type="hidden" name="link_id" value="'. $links[$n]['movie_id'] .'">
                         <input class="button delete" type="submit" value="Eliminar">
                     </form>
                 </td>

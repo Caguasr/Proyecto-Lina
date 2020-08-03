@@ -38,8 +38,8 @@ if( $_POST['r'] == 'link-delete' && $_SESSION['rol'] == 'Admin' && !isset($_POST
 
 		printf(
 			$template_link,
-			$link[0]['id_link'],
-			$link[0]['id_link']
+			$link[0]['id'],
+			$link[0]['id']
 		);	
 	}
 

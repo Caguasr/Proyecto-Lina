@@ -20,7 +20,7 @@ if ($_POST['r'] == 'link-add' && $_SESSION['rol'] == 'Admin' && !isset($_POST['c
             </div>
             <div class="p_25">
             <select name="imdb_id" placeholder="imdb_id" required>
-                <option value="">status</option>
+                <option value="">Película</option>
                 %s
             </select>
             </div>
@@ -35,9 +35,9 @@ if ($_POST['r'] == 'link-add' && $_SESSION['rol'] == 'Admin' && !isset($_POST['c
     $links_controller = new LinksController();
 
     $new_link = array(
-        'id_link' => 0,
+        'id' => 0,
         'link' => $_POST['link'],
-        'peliculasimdb_id' => $_POST['imdb_id']
+        'movie_id' => $_POST['imdb_id']
     );
 
     $link = $links_controller->set($new_link);

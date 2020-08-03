@@ -36,7 +36,7 @@ if ( $_POST['r'] == 'movieserie-show' && isset($_POST['imdb_id'])) {
             $template_ms,
             $ms[0]['titulo'],
             $ms[0]['imdb_id'],
-            $ms[0]['status'],
+            $ms[0]['status_desc'],
             $ms[0]['categoria'],
             $ms[0]['año'],
             $ms[0]['rating'],

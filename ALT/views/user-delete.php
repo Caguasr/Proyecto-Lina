@@ -38,8 +38,8 @@ if( $_POST['r'] == 'user-delete' && $_SESSION['rol'] == 'Admin' && !isset($_POST
 
 		printf(
 			$template_status,
-			$user[0]['usuario'],
-			$user[0]['usuario']
+			$user[0]['name'],
+			$user[0]['name']
 		);	
 	}
 

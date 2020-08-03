@@ -27,8 +27,8 @@ if( $_POST['r'] == 'movieserie-edit' && $_SESSION['rol'] == 'Admin' && !isset($_
 		$status_select = '';
 
 		for ($n=0; $n < count($status); $n++) { 
-			$selected = ($ms[0]['status'] == $status[$n]['status']) ? 'selected' : '';
-			$status_select .= '<option value="' . $status[$n]['status_id'] . '"' . $selected . '>' . $status[$n]['status'] . '</option>';
+			$selected = ($ms[0]['status_desc'] == $status[$n]['status_desc']) ? 'selected' : '';
+			$status_select .= '<option value="' . $status[$n]['status_id'] . '"' . $selected . '>' . $status[$n]['status_desc'] . '</option>';
 		}
 
 		$template_ms = '

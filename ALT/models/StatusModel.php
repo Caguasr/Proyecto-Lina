@@ -10,7 +10,7 @@ class StatusModel extends Model
             $$key = $value;
         }
         //el query viene desde Model
-        $this->query = "REPLACE INTO status(status_id, status) VALUES($status_id, '$status')";
+        $this->query = "REPLACE INTO status(status_id, status_desc) VALUES($status_id, '$status_desc')";
         $this->set_query();
     }
 

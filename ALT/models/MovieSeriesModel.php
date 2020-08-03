@@ -21,9 +21,12 @@ class MovieSeriesModel extends Model
 
     public function get($ms = '')
     {
+        /*
+        INSERT INTO `peliculas`(`imdb_id`, `titulo`, `sinopsis`, `año`, `imagen`, `trailer`, `actores`, `autor`, `rating`, `categoria`, `statusstatus_id`) VALUES ([v
+        */
         $this->query = ($ms != '')
-            ? "SELECT ms.imdb_id, ms.titulo, ms.sinopsis, ms.año, ms.imagen, ms.trailer, ms.actores, ms.autor, ms.rating, ms.categoria, s.status FROM peliculas AS ms INNER JOIN status AS s ON ms.statusstatus_id = s.status_id WHERE ms.imdb_id = '$ms'"
-            : "SELECT ms.imdb_id, ms.titulo, ms.sinopsis, ms.año, ms.imagen, ms.trailer, ms.actores, ms.autor, ms.rating, ms.categoria, s.status FROM peliculas AS ms INNER JOIN status AS s ON ms.statusstatus_id = s.status_id";
+            ? "SELECT ms.imdb_id, ms.titulo, ms.sinopsis, ms.año, ms.imagen, ms.trailer, ms.actores, ms.autor, ms.rating, ms.categoria, s.status_desc FROM peliculas AS ms INNER JOIN status AS s ON ms.statusstatus_id = s.status_id WHERE ms.imdb_id = '$ms'"
+            : "SELECT ms.imdb_id, ms.titulo, ms.sinopsis, ms.año, ms.imagen, ms.trailer, ms.actores, ms.autor, ms.rating, ms.categoria, s.status_desc FROM peliculas AS ms INNER JOIN status AS s ON ms.statusstatus_id = s.status_id";
         $this->get_query();
 
         //contar cuantos datos existe

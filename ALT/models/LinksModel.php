@@ -11,15 +11,16 @@ class LinksModel extends Model
             $$key = $value;
         }
         //el query viene desde Model
-        $this->query = "REPLACE INTO links(id_link, link, peliculasimdb_id) VALUES($id_link, '$link', '$peliculasimdb_id')";
+        //INSERT INTO `links`(`id`, `link`, `movie_id`) VALUES ([value-1],[value-2],[value-3])
+        $this->query = "REPLACE INTO links(id, link, movie_id) VALUES($id, '$link', '$movie_id')";
         $this->set_query();
     }
 
-    public function get($id_link = '')
+    public function get($id = '')
     {
-        $this->query = ($id_link != '')
-            ? "SELECT ls.id_link, ls.link, ls.peliculasimdb_id, ms.titulo, ms.imdb_id FROM links AS ls INNER JOIN peliculas AS ms ON ls.peliculasimdb_id = ms.imdb_id WHERE ls.peliculasimdb_id = '$id_link' ORDER BY id_link"
-            : "SELECT ls.id_link, ls.link, ls.peliculasimdb_id, ms.titulo, ms.imdb_id FROM links AS ls INNER JOIN peliculas AS ms ON ls.peliculasimdb_id = ms.imdb_id ORDER BY id_link";
+        $this->query = ($id != '')
+            ? "SELECT ls.id, ls.link, ls.movie_id, ms.titulo, ms.imdb_id FROM links AS ls INNER JOIN peliculas AS ms ON ls.movie_id = ms.imdb_id WHERE ls.movie_id = '$id' ORDER BY id"
+            : "SELECT ls.id, ls.link, ls.movie_id, ms.titulo, ms.imdb_id FROM links AS ls INNER JOIN peliculas AS ms ON ls.movie_id = ms.imdb_id ORDER BY id";
         $this->get_query();
 
         //contar cuantos datos existe
@@ -32,9 +33,9 @@ class LinksModel extends Model
         return $data;
     }
 
-    public function del($id_link = '')
+    public function del($id = '')
     {
-        $this->query = "DELETE FROM links WHERE id_link= $id_link";
+        $this->query = "DELETE FROM links WHERE id= $id";
 
         $this->set_query();
     }

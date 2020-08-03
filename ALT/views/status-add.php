@@ -1,5 +1,5 @@
 <?php
-if ($_POST['r'] == 'status-add' && $_SESSION['role'] == 'Admin' && !isset($_POST['crud'])) {
+if ($_POST['r'] == 'status-add' && $_SESSION['rol'] == 'Admin' && !isset($_POST['crud'])) {
     print('
         <h2 class="p1">Agregar Status</h2>
         <form method="POST" class="item">
@@ -13,12 +13,12 @@ if ($_POST['r'] == 'status-add' && $_SESSION['role'] == 'Admin' && !isset($_POST
             </div>
         </form>
     ');
-} else if ($_POST['r'] == 'status-add' && $_SESSION['role'] == 'Admin' && $_POST['crud'] == 'set') {
+} else if ($_POST['r'] == 'status-add' && $_SESSION['rol'] == 'Admin' && $_POST['crud'] == 'set') {
     $status_controller = new StatusController();
 
     $new_status = array(
         'status_id' => 0,
-        'status' => $_POST['status']
+        'status_desc' => $_POST['status']
     );
 
     $status = $status_controller->set($new_status);

@@ -19,21 +19,22 @@ if( $_POST['r'] == 'user-edit' && $_SESSION['rol'] == 'Admin' && !isset($_POST['
 
 		printf($template, $_POST['user']);
 	} else {
+		echo $_POST['user'];
 		$role_admin = ($user[0]['rol'] == 'Admin') ? 'checked' : '';
-		$role_user = ($user[0]['rol'] == 'User') ? 'checked' : '';
+		$role_user = ($user[0]['rol'] == 'user') ? 'checked' : '';
 
 		$template_user = '
 			<h2 class="p1">Editar Usuario</h2>
 			<form method="POST" class="item">
 				<div class="p_25">
-					<input type="text" placeholder="usuario" value="%s" disabled required>
-					<input type="hidden" name="user" value="%s">
+					<input type="text" placeholder="name" value="%s" disabled required>
+					<input type="hidden" name="name" value="%s">
 				</div>
 				<div class="p_25">
 					<input type="email" name="email" placeholder="email" value="%s" required>
 				</div>
 				<div class="p_25">
-					<input type="text" name="name" placeholder="nombre" value="%s" required>
+					<input type="text" name="nombre_usuario" placeholder="nombre" value="%s" required>
 				</div>
 				<div class="p_25">
 					<input type="password" name="pass" placeholder="password" value="" required>
@@ -52,8 +53,8 @@ if( $_POST['r'] == 'user-edit' && $_SESSION['rol'] == 'Admin' && !isset($_POST['
 
 		printf(
 			$template_user,
-			$user[0]['usuario'],
-			$user[0]['nombre_usuario'],
+			$user[0]['name'],
+			$user[0]['name'],
 			$user[0]['email'],
 			$user[0]['nombre_usuario'],
 			//$user[0]['pass'],
@@ -65,10 +66,10 @@ if( $_POST['r'] == 'user-edit' && $_SESSION['rol'] == 'Admin' && !isset($_POST['
 } else if( $_POST['r'] == 'user-edit' && $_SESSION['rol'] == 'Admin' && $_POST['crud'] == 'set' ) {	
 
 	$save_user = array(
-		'nombre_usuario' =>  $_POST['name'], 
-		'usuario' =>  $_POST['user'], 
+		'name' =>  $_POST['name'],
 		'email' =>  $_POST['email'],
 		'password' =>  $_POST['pass'], 
+		'nombre_usuario' =>  $_POST['nombre_usuario'], 
 		'rol' =>  $_POST['role']
 
 	);
@@ -86,7 +87,7 @@ if( $_POST['r'] == 'user-edit' && $_SESSION['rol'] == 'Admin' && !isset($_POST['
 		</script>
 	';
 
-	printf($template, $_POST['user']);
+	printf($template, $_POST['name']);
 } else {
 	$controller = new ViewControllers();
 	$controller->load_view('error401');

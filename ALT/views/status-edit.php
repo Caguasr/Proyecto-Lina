@@ -41,15 +41,15 @@ if( $_POST['r'] == 'status-edit' && $_SESSION['rol'] == 'Admin' && !isset($_POST
 			$template_status,
 			$status[0]['status_id'],
 			$status[0]['status_id'],
-			$status[0]['status']
+			$status[0]['status_desc']
 		);	
 	}
 
-} else if( $_POST['r'] == 'status-edit' && $_SESSION['role'] == 'Admin' && $_POST['crud'] == 'set' ) {	
+} else if( $_POST['r'] == 'status-edit' && $_SESSION['rol'] == 'Admin' && $_POST['crud'] == 'set' ) {	
 
 	$save_status = array(
 		'status_id' => $_POST['status_id'],
-		'status' => $_POST['status']
+		'status_desc' => $_POST['status']
 	);
 
 	$status = $status_controller->set($save_status);

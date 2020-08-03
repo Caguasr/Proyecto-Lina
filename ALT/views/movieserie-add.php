@@ -6,7 +6,7 @@ if ($_POST['r'] == 'movieserie-add' && $_SESSION['rol'] == 'Admin' && !isset($_P
     $status_select = '';
 
     for ($n=0; $n <count($status) ; $n++) { 
-        $status_select .= '<option value="' .$status[$n]['status_id'] . '">' .$status[$n]['status'] . '</option>';
+        $status_select .= '<option value="' .$status[$n]['status_id'] . '">' .$status[$n]['status_desc'] . '</option>';
     }
 
     
@@ -41,7 +41,7 @@ if ($_POST['r'] == 'movieserie-add' && $_SESSION['rol'] == 'Admin' && !isset($_P
                 <input type="number" name="rating" placeholder="rating" required>
             </div>
             <div class="p_25">
-                <select name="status" placeholder="status" required>
+                <select name="status_desc" placeholder="status_desc" required>
                 <option value="">status</option>
                 %s
                 </select>
@@ -70,7 +70,7 @@ if ($_POST['r'] == 'movieserie-add' && $_SESSION['rol'] == 'Admin' && !isset($_P
         'imagen' =>  $_POST['poster'],
         'trailer' =>  $_POST['trailer'],
         'rating' =>  $_POST['rating'],
-        'statusstatus_id' =>  $_POST['status'],
+        'statusstatus_id' =>  $_POST['status_desc'],
         'categoria' =>  $_POST['category']
     );
 

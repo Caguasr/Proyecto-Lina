@@ -1,7 +1,7 @@
 <?php 
 $status_controller = new StatusController();
 
-if( $_POST['r'] == 'status-delete' && $_SESSION['role'] == 'Admin' && !isset($_POST['crud']) ) {
+if( $_POST['r'] == 'status-delete' && $_SESSION['rol'] == 'Admin' && !isset($_POST['crud']) ) {
 
 	$status = $status_controller->get($_POST['status_id']);
 
@@ -38,12 +38,12 @@ if( $_POST['r'] == 'status-delete' && $_SESSION['role'] == 'Admin' && !isset($_P
 
 		printf(
 			$template_status,
-			$status[0]['status'],
+			$status[0]['status_desc'],
 			$status[0]['status_id']
 		);	
 	}
 
-} else if( $_POST['r'] == 'status-delete' && $_SESSION['role'] == 'Admin' && $_POST['crud'] == 'del' ) {	
+} else if( $_POST['r'] == 'status-delete' && $_SESSION['rol'] == 'Admin' && $_POST['crud'] == 'del' ) {	
 
 	$status = $status_controller->del($_POST['status_id']);
 

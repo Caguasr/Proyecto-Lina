@@ -8,14 +8,15 @@ class UserModel extends Model{
             $$key = $value;
         }
         //el query viene desde Model
-        $this->query = "REPLACE INTO usuarios (nombre_usuario, `usuario`, `password`, `email`, `rol`) VALUES('$nombre_usuario', '$usuario', MD5('$password'), '$email', '$rol')";
+        $this->query = "REPLACE INTO users (id, name, `email`, `password`) VALUES(null, '$name', '$email', MD5('$password'))";
+       // $this->query = "REPLACE INTO users (id, `name`, `password`, `email`, `nombre_usuario`, `rol`) VALUES(null, '$name',  MD5('$password'), '$email', '$nombre_usuario', '$rol')";
         $this->set_query();
     }
 
     public function get($usuario = ''){
         $this->query = ($usuario != '') 
-        ?"SELECT * FROM usuarios WHERE usuario = '$usuario'" 
-        :"SELECT * FROM usuarios " ;
+        ?"SELECT * FROM users WHERE `name` = '$usuario'" 
+        :"SELECT * FROM users " ;
         $this->get_query();
 
         //contar cuantos datos existe
@@ -29,13 +30,13 @@ class UserModel extends Model{
     }
 
     public function del($usuario = ''){
-        $this->query = "DELETE FROM usuarios WHERE usuario = '$usuario'";
+        $this->query = "DELETE FROM users WHERE `name` = '$usuario'";
 
         $this->set_query();
     }
 
     public function validate_user ($usuario, $password){
-        $this->query = "SELECT * FROM usuarios WHERE usuario = '$usuario' AND password = MD5('$password')";
+        $this->query = "SELECT * FROM users WHERE name = '$usuario' AND password = MD5('$password')";
         $this->get_query();
 
         $data = array();

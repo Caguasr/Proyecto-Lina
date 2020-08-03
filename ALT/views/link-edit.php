@@ -13,7 +13,7 @@ if( $_POST['r'] == 'link-edit' && $_SESSION['rol'] == 'Admin' && !isset($_POST['
 			</div>
 			<script>
 				window.onload = function (){
-					//reloadPage("links")
+					reloadPage("links")
 				}
 			</script>
 		';
@@ -65,8 +65,8 @@ if( $_POST['r'] == 'link-edit' && $_SESSION['rol'] == 'Admin' && !isset($_POST['
 
 		printf(
 			$template_link,
-			$link[0]['id_link'],
-			$link[0]['id_link'],
+			$link[0]['id'],
+			$link[0]['id'],
 			$link[0]['link'],
 			$link_select
 		);	
@@ -75,9 +75,9 @@ if( $_POST['r'] == 'link-edit' && $_SESSION['rol'] == 'Admin' && !isset($_POST['
 } else if( $_POST['r'] == 'link-edit' && $_SESSION['rol'] == 'Admin' && $_POST['crud'] == 'set' ) {	
 
 	$save_link = array(
-		'id_link' => $_POST['link_id'],
+		'id' => $_POST['link_id'],
 		'link' => $_POST['link'],
-		'peliculasimdb_id' => $_POST['imdb_id']
+		'movie_id' => $_POST['imdb_id']
 	);
 
 	$link = $links_controller->set($save_link);

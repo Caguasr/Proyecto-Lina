@@ -11,7 +11,7 @@ class Router {
 			'auto_start' => 1,
 			'read_and_close' => true
 		);
-
+		
 		if( !isset($_SESSION) )  session_start($session_options);
 
 		if( !isset($_SESSION['ok']) )  $_SESSION['ok'] = false;
